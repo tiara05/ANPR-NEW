@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container mt-5 " data-bs-spy="scroll">
+        <h4>Input Image</h4>
+        <form action="#" method="POST" enctype="multipart/form-data" class="mt-4">
+            <div class="input-group">
+                <input type="file" class="form-control" name="image_name" required>
+            </div>
+            <div class="input-group mt-2 d-flex justify-content-center">
+                <input type="submit" value="Upload" class="btn btn-outline-light" style="background-color:#128FE2; font-family: 'Segoe UI', Arial, sans-serif;">
+            </div>
+        </form>
+    </div>
+
+    {% if upload %}
+        <div class="container mt-3">
+            <h4>Prediction Result</h4>
+            <table class="mt-4">
+                <tr>
+                    <td>
+                        <img class="rounded float-left img-fluid" src="/static/upload/{{ upload_image }}" alt="" style="width: 374px;height: 290px; padding-right:32px;">
+                    </td>
+                    <td>
+                        <img class="rounded float-right img-fluid" src="/static/upload/{{idx}}/image.jpg" alt="" style="padding-right:32px; width:213px;height:74px;">
+                    </td>
+                    <td>
+                        <h6>Plate Number = <b>{{text}}</b></h6>
+                    </td>
+                </tr>
+
+            </table>
+            <br>
+
+        </div>
+    
+    
+    
+    {% endif %}
+
+{% endblock  %}

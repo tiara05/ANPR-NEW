@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container" style="margin-top: 2%">
+    {% if M and Y %}
+    <h5><center>Showing result from Month <b>{{M}}</b> Year <b>{{Y}}</b></center></h5>
+    {% endif %}
+
+    <form action="" method="post" class="row mb-4 mt-4">
+        <div class="col-2">
+            <label for="Month"><b>Month</b></label>
+            <select class="form-select" name="Month" id="Month" style="width:200px;" required>
+                <option selected>Select Month</option>
+                <option value="all">All</option>
+                <option value="Jan">January</option>
+                <option value="Feb">Februaty</option>
+                <option value="Mar">March</option>
+                <option value="Apr">April</option>
+                <option value="May">May</option>
+                <option value="Jun">June</option>
+                <option value="Jul">July</option>
+                <option value="Aug">August</option>
+                <option value="Sep">September</option>
+                <option value="Oct">October</option>
+                <option value="Nov">November</option>
+                <option value="Dec">December</option>
+            </select>
+        </div>
+
+        <div class="col-2">
+            <label for="Year"><b>Year</b></label>
+            <input class="form-control type="number" name="Year" id="Year" min="2023" placeholder="Input year" style="width:100%;" required>
+        </div>
+
+        <div class="col-2">
+            <br />
+            <input type="submit" value="Go" class="btn btn-outline-light" style="background-color:#128FE2; width:100%; font-family: 'Segoe UI', Arial, sans-serif;">
+        </div>
+    </form>
+
+    <table class="table table-responsive  table-bordered" >
+        <thead class="table " style="background-color: #D9EFFC; color: black;" >
+          <tr>
+            <th scope="col" style="text-align: center">Index</th>
+            <th scope="col" style="text-align: center">Post Day</th>
+            <th scope="col" style="text-align: center">Raw Image</th>
+            <th scope="col" style="text-align: center">Plate Image</th>
+            <th scope="col" style="text-align: center">Prediction Plate</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+            {% for i in data %}
+          
+          <tr style="font-weight: 400">  
+              <th scope="row" style="line-height: 8rem; text-align: center">{{i[0]}}</th>
+              <td style="line-height: 8rem;text-align: center"><center>{{i[1]}} {{i[2]}} {{i[3]}}<center></td>
+              <td style="line-height: 8rem;text-align: center"><img src="{{i[4]}}" alt="" width="250px"></td>
+              <td style="line-height: 8rem;text-align: center"><img src="{{i[5]}}" alt="" width="250px"></td>
+              <td style="line-height: 8rem;text-align: center"><center>{{i[6]}}</center></td>
+          </tr>
+         
+          {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock  %}
