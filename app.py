@@ -58,12 +58,7 @@ def history():
                         if row[3] == Y: rows.append(row)
                     elif row[2] == M and row[3] == Y:
                         rows.append(row)
-                elif M != None:
-                    if M == "all" or row[2] == M :
-                        rows.append(row)
-                elif Y != None:
-                    if row[3] == Y:
-                        rows.append(row)
+                
     else :
         with open("database.csv", 'r') as file:
             csvreader = csv.reader(file)
